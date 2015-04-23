@@ -180,10 +180,7 @@ public class GameController {
 		if (selectedTopic < 0) {
 			// Bound too low, topic set to 0
 			selectedTopic = 0;
-		} else if (selectedTopic >= topics.size()) {
-			// Set to Random (size - 1)
-			selectedTopic = topics.size() - 1;
-		} else if (selectedTopic == topics.size() - 1) {
+		} else if (selectedTopic >= topics.size() || selectedTopic == topics.size() - 1) {
 			// Topic set to random
 			selectedTopic = (int) (Math.random() * topics.size());
 		} else {
