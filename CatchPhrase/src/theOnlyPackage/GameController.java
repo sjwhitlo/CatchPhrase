@@ -18,12 +18,12 @@ public class GameController {
 	private int teamOne;
 	/** Team Two's points. */
 	private int teamTwo;
-	/** The ArrayList of Topics. */
-	private ArrayList<String> topics;
+	/** The ArrayList of Categories. */
+	private ArrayList<String> categories;
 	/** The ArrayList that holds the phrases. */
 	private ArrayList<Phrase> phrases;
 	/** The selected topic. */
-	private int selectedTopic;
+	private int selectedCategory;
 	/** The number of turns made. */
 	private int turns;
 
@@ -50,17 +50,33 @@ public class GameController {
 	public GameController(Scanner f) throws FileNotFoundException {
 		teamOne = 0;
 		teamTwo = 0;
-		topics = new ArrayList<String>();
+		categories = new ArrayList<String>();
 		phrases = new ArrayList<Phrase>();
-		selectedTopic = -1;
+		selectedCategory = -1;
 		turns = 0;
 
 		// If the file is not null
 		if (f != null) {
+			f.useDelimiter("[&\n]");
 			// Read in the file
 			// While the file has more lines
 			while (f.hasNext()) {
-
+				// Add the first section (Topics)
+				if (f.nextLine().equals("\n")) {
+					break;
+				}
+				// Add the Topic
+				categories.add(f.nextLine());
+			}
+			// Clear the empty line
+			f.nextLine();
+			// While the file has more lines
+			while (f.hasNext()) {
+				// Temp phrase variable
+				String phrase = f.next();
+				// Temp category variable
+				String category = f.next();
+				phrases.add(new Phrase(phrase, category));
 			}
 		}
 	}
@@ -124,7 +140,7 @@ public class GameController {
 		}
 		// While the front element does not contain the topic, put it at the
 		// back
-		while (!phrases.get(0).isTopic(topics.get(selectedTopic))) {
+		while (!phrases.get(0).isCategory(categories.get(selectedCategory))) {
 			// Increment turns
 			turns++;
 			// Move the element to the back
@@ -144,7 +160,7 @@ public class GameController {
 	public void skipPhrase() {
 		// While the front element does not contain the topic, put it at the
 		// back
-		while (!phrases.get(0).isTopic(topics.get(selectedTopic))) {
+		while (!phrases.get(0).isCategory(categories.get(selectedCategory))) {
 			// Increment turns
 			turns++;
 			// Move the element to the back
@@ -153,38 +169,39 @@ public class GameController {
 	}
 
 	/**
-	 * Returns the selected topic. If no topic is selected (the number is out of
-	 * bounds) the message "No topic selected." is returned.
+	 * Returns the selected category. If no category is selected (the number is out of
+	 * bounds) the message "No category selected." is returned.
 	 * 
-	 * @return The topic selected
+	 * @return The category selected
 	 */
-	public String getTopic() {
-		if (selectedTopic < 0 || selectedTopic >= topics.size()) {
-			return "No topic selected.";
+	public String getCategory() {
+		if (selectedCategory < 0 || selectedCategory >= categories.size()) {
+			return "No category selected.";
 		} else {
-			return topics.get(selectedTopic);
+			return categories.get(selectedCategory);
 		}
 	}
 
 	/**
-	 * Selects the topic based on the input. If </code>toSelect</code> is less
-	 * than 0, the first topic is selected. If </code>toSelect</code> is greater
-	 * than the size, the last topic is selected. And if </code>toSelect</code>
-	 * is equal to size, a random topic is selected. Otherwise, the selected
-	 * topic is the one chosen.
+	 * Selects the category based on the input. If </code>toSelect</code> is less
+	 * than 0, the first category is selected. If </code>toSelect</code> is greater
+	 * than the size, the last category is selected. And if </code>toSelect</code>
+	 * is equal to size, a random category is selected. Otherwise, the selected
+	 * category is the one chosen.
 	 * 
 	 * @param toSelect
-	 *            The topic being selected
+	 *            The category being selected
 	 */
-	public void selectTopic(int toSelect) {
-		if (selectedTopic < 0) {
+	public void selectCategory(int toSelect) {
+		if (selectedCategory < 0) {
 			// Bound too low, topic set to 0
-			selectedTopic = 0;
-		} else if (selectedTopic >= topics.size() || selectedTopic == topics.size() - 1) {
+			selectedCategory = 0;
+		} else if (selectedCategory >= categories.size()
+				|| selectedCategory == categories.size() - 1) {
 			// Topic set to random
-			selectedTopic = (int) (Math.random() * topics.size());
+			selectedCategory = (int) (Math.random() * categories.size());
 		} else {
-			selectedTopic = toSelect;
+			selectedCategory = toSelect;
 		}
 	}
 }

@@ -1,7 +1,7 @@
 package theOnlyPackage;
 
 /**
- * An object that has a Phrase and topic.
+ * An object that has a Phrase and category.
  * 
  * @author Sam Whitlock
  */
@@ -9,20 +9,20 @@ public class Phrase {
 
 	/** The phrase. */
 	private String phrase;
-	/** The topic. */
-	private String topic;
+	/** The category. */
+	private String category;
 
 	/**
 	 * Constructs a Phrase object with the given parameters.
 	 * 
 	 * @param phrase
 	 *            The phrase
-	 * @param topic
-	 *            The topic
+	 * @param category
+	 *            The category
 	 */
-	public Phrase(String phrase, String topic) {
+	public Phrase(String phrase, String category) {
 		this.phrase = phrase;
-		this.topic = topic;
+		this.category = category;
 	}
 
 	/**
@@ -35,22 +35,22 @@ public class Phrase {
 	}
 
 	/**
-	 * Returns the topic.
+	 * Returns the category.
 	 * 
-	 * @return The topic
+	 * @return The category
 	 */
-	public String getTopic() {
-		return topic;
+	public String getCategory() {
+		return category;
 	}
 
 	/**
-	 * Returns true if the Phrase is a member of the indicated topic
+	 * Returns true if the Phrase is a member of the indicated category
 	 * 
 	 * @param string
-	 *            The topic to check
-	 * @return true if the phrase belongs to the topic
+	 *            The category to check
+	 * @return true if the phrase belongs to the category
 	 */
-	public boolean isTopic(String toCheck) {
-		return topic.contains(toCheck);
+	public boolean isCategory(String toCheck) {
+		return category.contains(toCheck);
 	}
 }
