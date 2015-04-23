@@ -88,6 +88,24 @@ public class GameController {
 	}
 
 	/**
+	 * Returns Team One's name.
+	 * 
+	 * @return Team One's name
+	 */
+	public String getTeamOneName() {
+		return TEAM_ONE_NAME;
+	}
+
+	/**
+	 * Returns Team Two's name.
+	 * 
+	 * @return Team Two's name
+	 */
+	public String getTeamTwoName() {
+		return TEAM_TWO_NAME;
+	}
+	
+	/**
 	 * Returns the number of points that team one has.
 	 * 
 	 * @return The number of points that team one has

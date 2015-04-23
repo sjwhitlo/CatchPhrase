@@ -17,6 +17,16 @@ public class GameControllerTest {
 	}
 
 	@Test
+	public void testGetTeamOneName() {
+		fail("Not yet implemented"); // TODO
+	}
+
+	@Test
+	public void testGetTeamTwoName() {
+		fail("Not yet implemented"); // TODO
+	}
+	
+	@Test
 	public void testGetTeamOne() {
 		fail("Not yet implemented"); // TODO
 	}
