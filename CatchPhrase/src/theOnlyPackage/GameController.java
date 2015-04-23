@@ -41,7 +41,7 @@ public class GameController {
 	 *             folder.
 	 */
 	public GameController() throws FileNotFoundException {
-		this(new Scanner(new File("PhraseList.txt")));
+		this(new Scanner(new File("./PhraseList.txt")));
 	}
 
 	/**
@@ -67,15 +67,14 @@ public class GameController {
 			// Read in the file
 			// While the file has more lines
 			while (f.hasNext()) {
+				String line = f.nextLine();
 				// Add the first section (Topics)
-				if (f.nextLine().equals("\n")) {
+				if (line.isEmpty()) {
 					break;
 				}
 				// Add the Topic
-				categories.add(f.nextLine());
+				categories.add(line);
 			}
-			// Clear the empty line
-			f.nextLine();
 			// While the file has more lines
 			while (f.hasNext()) {
 				// Temp phrase variable
@@ -104,7 +103,7 @@ public class GameController {
 	public String getTeamTwoName() {
 		return TEAM_TWO_NAME;
 	}
-	
+
 	/**
 	 * Returns the number of points that team one has.
 	 * 
@@ -157,7 +156,7 @@ public class GameController {
 	 * 
 	 * @return The next phrase
 	 */
-	public String getPhrase() {
+	public String getNextPhrase() {
 		// If the number of turns is equal to the size of the list, randomize it
 		if (turns % phrases.size() == 0) {
 			Collections.shuffle(phrases);
@@ -249,5 +248,35 @@ public class GameController {
 	 */
 	public boolean gameOver() {
 		return (teamOne >= TOTAL_POINTS || teamTwo >= TOTAL_POINTS);
+	}
+
+	/**
+	 * Returns a String representing all of the items in the list.
+	 * 
+	 * @return A String representing all of the items in the list
+	 */
+	public String toString() {
+		String toReturn = "";
+		for (int i = 0; i < phrases.size(); i++) {
+			toReturn += phrases.get(0).getPhrase() + "\n";
+			phrases.add(phrases.remove(0));
+		}
+		return toReturn;
+	}
+
+	/**
+	 * Returns a String representing all of the items in the selected category.
+	 * 
+	 * @return A String representing all of the items in the selected category
+	 */
+	public String toStringCategory() {
+		String toReturn = "";
+		for (int i = 0; i < phrases.size(); i++) {
+			if (phrases.get(0).isCategory(categories.get(selectedCategory))) {
+				toReturn += phrases.get(0) + "\n";
+			}
+			phrases.add(phrases.remove(0));
+		}
+		return toReturn;
 	}
 }
