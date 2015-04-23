@@ -1,0 +1,15 @@
+MCU
+HP
+Everything
+Random
+
+Bruce Banner&MCU Everything
+Tony Stark&MCU Everything
+Harry Potter&HP Everything
+Lily Potter&HP Everything
+Steve Rogers&MCU Everything
+Natasha Romanoff&MCU Everything
+James Potter&HP Everything
+Hermione Granger&HP Everything
+Groot&MCU Everything
+Voldemort&HP Everything
