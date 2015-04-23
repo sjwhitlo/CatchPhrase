@@ -272,7 +272,7 @@ public class GameController {
 		String toReturn = "";
 		for (int i = 0; i < phrases.size(); i++) {
 			if (phrases.get(0).isCategory(categories.get(selectedCategory))) {
-				toReturn += phrases.get(0) + "\n";
+				toReturn += phrases.get(0).getPhrase() + "\n";
 			}
 			phrases.add(phrases.remove(0));
 		}

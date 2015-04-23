@@ -3,6 +3,7 @@ package theOnlyPackage;
 import static org.junit.Assert.*;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import org.junit.Before;
@@ -18,6 +19,18 @@ public class GameControllerTest {
 		gc = new GameController(new Scanner(new File("./PhraseListTest.txt")));
 	}
 
+	@Test
+	public void testGameController() {
+		try {
+			gc = new GameController();
+			gc.selectCategory(2);
+			assertTrue(gc.toStringCategory().startsWith("Bruce"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+	}
+	
 	@Test
 	public void testGameControllerScanner() {
 		assertTrue(gc
