@@ -20,8 +20,8 @@ public class GameController {
 	private int teamTwo;
 	/** The ArrayList of Topics. */
 	private ArrayList<String> topics;
-	/** The ArrayList of ArrayLists that holds the phrases. */
-	private ArrayList<ArrayList<String>> phrases;
+	/** The ArrayList that holds the phrases. */
+	private ArrayList<Phrase> phrases;
 	/** The selected topic. */
 	private int selectedTopic;
 	/** The number of turns made. */
@@ -51,7 +51,7 @@ public class GameController {
 		teamOne = 0;
 		teamTwo = 0;
 		topics = new ArrayList<String>();
-		phrases = new ArrayList<ArrayList<String>>();
+		phrases = new ArrayList<Phrase>();
 		selectedTopic = -1;
 		turns = 0;
 
@@ -119,15 +119,21 @@ public class GameController {
 	 */
 	public String getPhrase() {
 		// If the number of turns is equal to the size of the list, randomize it
-		if (turns % phrases.get(selectedTopic).size() == 0) {
-			Collections.shuffle(phrases.get(selectedTopic));
+		if (turns % phrases.size() == 0) {
+			Collections.shuffle(phrases);
 		}
-		// Increment turns
-		turns++;
+		// While the front element does not contain the topic, put it at the
+		// back
+		while (!phrases.get(0).isTopic(topics.get(selectedTopic))) {
+			// Increment turns
+			turns++;
+			// Move the element to the back
+			phrases.add(phrases.remove(0));
+		}
 		// Get the element at the front of the list
-		String toReturn = phrases.get(selectedTopic).get(0);
+		String toReturn = phrases.get(0).getPhrase();
 		// Move the element to the back
-		phrases.get(selectedTopic).add(phrases.get(selectedTopic).remove(0));
+		phrases.add(phrases.remove(0));
 		// Return the Phrase
 		return toReturn;
 	}
@@ -136,10 +142,14 @@ public class GameController {
 	 * Skips the next phrase.
 	 */
 	public void skipPhrase() {
-		// Increment turns
-		turns++;
-		// Move the element to the back
-		phrases.get(selectedTopic).add(phrases.get(selectedTopic).remove(0));
+		// While the front element does not contain the topic, put it at the
+		// back
+		while (!phrases.get(0).isTopic(topics.get(selectedTopic))) {
+			// Increment turns
+			turns++;
+			// Move the element to the back
+			phrases.add(phrases.remove(0));
+		}
 	}
 
 	/**
@@ -168,10 +178,13 @@ public class GameController {
 	 */
 	public void selectTopic(int toSelect) {
 		if (selectedTopic < 0) {
+			// Bound too low, topic set to 0
 			selectedTopic = 0;
-		} else if (selectedTopic > topics.size()) {
+		} else if (selectedTopic >= topics.size()) {
+			// Set to Random (size - 1)
 			selectedTopic = topics.size() - 1;
-		} else if (selectedTopic > topics.size()) {
+		} else if (selectedTopic == topics.size() - 1) {
+			// Topic set to random
 			selectedTopic = (int) (Math.random() * topics.size());
 		} else {
 			selectedTopic = toSelect;
