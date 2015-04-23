@@ -28,7 +28,7 @@ public class GameController {
 	private int turns;
 
 	/**
-	 * The generic constructor.
+	 * The generic, default constructor with the default file.
 	 * 
 	 * @throws FileNotFoundException
 	 *             Won't happen unless the default file is not in the src
