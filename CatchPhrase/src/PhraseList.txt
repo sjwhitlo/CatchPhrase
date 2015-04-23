@@ -110,9 +110,9 @@ Peter Parker&Marvel Cinematic Universe Everything
 Daily Bugle&Marvel Cinematic Universe Everything
 Gamma Radiation&Marvel Cinematic Universe Everything
 Tesseract&Marvel Cinematic Universe Everything
-I am Groot&Marvel Cinematic Universe Everything
-HULK SMASH!&Marvel Cinematic Universe Everything
-Genius, billionaire, playboy, philanthropist&Marvel Cinematic Universe Everything
+"I am Groot"&Marvel Cinematic Universe Everything
+"HULK SMASH!"&Marvel Cinematic Universe Everything
+"Genius, billionaire, playboy, philanthropist"&Marvel Cinematic Universe Everything
 Asgard&Marvel Cinematic Universe Everything
 New York&Marvel Cinematic Universe Everything
 Malibu Point&Marvel Cinematic Universe Everything
