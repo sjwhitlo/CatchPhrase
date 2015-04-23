@@ -29,47 +29,56 @@ public class GameControllerTest {
 
 	@Test
 	public void testGetTeamOneName() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(gc.getTeamOneName().equals("Team One"));
 	}
 
 	@Test
 	public void testGetTeamTwoName() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(gc.getTeamTwoName().equals("Team Two"));
 	}
 
 	@Test
 	public void testGetTeamOne() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(gc.getTeamOne(), 0);
 	}
 
 	@Test
 	public void testGetTeamTwo() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(gc.getTeamTwo(), 0);
 	}
 
 	@Test
 	public void testAddTeamOne() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(gc.getTeamOne(), 0);
+		gc.addTeamOne();
+		assertEquals(gc.getTeamOne(), 1);
 	}
 
 	@Test
 	public void testAddTeamTwo() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(gc.getTeamTwo(), 0);
+		gc.addTeamTwo();
+		assertEquals(gc.getTeamTwo(), 1);
 	}
 
 	@Test
 	public void testSubTeamOne() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(gc.getTeamOne(), 0);
+		gc.subTeamOne();
+		assertEquals(gc.getTeamOne(), -1);
 	}
 
 	@Test
 	public void testSubTeamTwo() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(gc.getTeamTwo(), 0);
+		gc.subTeamTwo();
+		assertEquals(gc.getTeamTwo(), -1);
 	}
 
 	@Test
 	public void testGetNextPhrase() {
-		fail("Not yet implemented"); // TODO
+		gc.selectCategory(2);
+		assertTrue(gc.getNextPhrase().equals("Groot"));
 	}
 
 	@Test

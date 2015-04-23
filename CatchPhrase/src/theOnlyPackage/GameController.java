@@ -208,19 +208,18 @@ public class GameController {
 	/**
 	 * Selects the category based on the input. If </code>toSelect</code> is
 	 * less than 0, the first category is selected. If </code>toSelect</code> is
-	 * greater than the size, the last category is selected. And if
-	 * </code>toSelect</code> is equal to size, a random category is selected.
-	 * Otherwise, the selected category is the one chosen.
+	 * greater than or equal to size or one less than size, a random category is
+	 * selected. Otherwise, the selected category is the one chosen.
 	 * 
 	 * @param toSelect
 	 *            The category being selected
 	 */
 	public void selectCategory(int toSelect) {
-		if (selectedCategory < 0) {
+		if (toSelect < 0) {
 			// Bound too low, topic set to 0
 			selectedCategory = 0;
-		} else if (selectedCategory >= categories.size()
-				|| selectedCategory == categories.size() - 1) {
+		} else if (toSelect >= categories.size()
+				|| toSelect == categories.size() - 1) {
 			// Topic set to random
 			selectedCategory = (int) (Math.random() * categories.size());
 		} else {
