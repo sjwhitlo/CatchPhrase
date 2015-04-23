@@ -14,6 +14,12 @@ import java.util.Scanner;
  */
 public class GameController {
 
+	/** Team One's name. */
+	private static final String TEAM_ONE_NAME = "Team One";
+	/** Team Two's name. */
+	private static final String TEAM_TWO_NAME = "Team Two";
+	/** The number of points that are played to. */
+	private static final int TOTAL_POINTS = 7;
 	/** Team One's points. */
 	private int teamOne;
 	/** Team Two's points. */
@@ -169,8 +175,8 @@ public class GameController {
 	}
 
 	/**
-	 * Returns the selected category. If no category is selected (the number is out of
-	 * bounds) the message "No category selected." is returned.
+	 * Returns the selected category. If no category is selected (the number is
+	 * out of bounds) the message "No category selected." is returned.
 	 * 
 	 * @return The category selected
 	 */
@@ -183,11 +189,11 @@ public class GameController {
 	}
 
 	/**
-	 * Selects the category based on the input. If </code>toSelect</code> is less
-	 * than 0, the first category is selected. If </code>toSelect</code> is greater
-	 * than the size, the last category is selected. And if </code>toSelect</code>
-	 * is equal to size, a random category is selected. Otherwise, the selected
-	 * category is the one chosen.
+	 * Selects the category based on the input. If </code>toSelect</code> is
+	 * less than 0, the first category is selected. If </code>toSelect</code> is
+	 * greater than the size, the last category is selected. And if
+	 * </code>toSelect</code> is equal to size, a random category is selected.
+	 * Otherwise, the selected category is the one chosen.
 	 * 
 	 * @param toSelect
 	 *            The category being selected
@@ -203,5 +209,27 @@ public class GameController {
 		} else {
 			selectedCategory = toSelect;
 		}
+	}
+
+	/**
+	 * Returns the winning team's name.
+	 * 
+	 * @return The winning team's name
+	 */
+	public String winner() {
+		if (teamOne > teamTwo) {
+			return TEAM_ONE_NAME;
+		} else {
+			return TEAM_TWO_NAME;
+		}
+	}
+
+	/**
+	 * Returns true if the game is over.
+	 * 
+	 * @return true if the game is over
+	 */
+	public boolean gameOver() {
+		return (teamOne >= TOTAL_POINTS || teamTwo >= TOTAL_POINTS);
 	}
 }

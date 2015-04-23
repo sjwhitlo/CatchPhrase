@@ -66,4 +66,14 @@ public class GameControllerTest {
 		fail("Not yet implemented"); // TODO
 	}
 
+	@Test
+	public void testWinner() {
+		fail("Not yet implemented"); // TODO
+	}
+
+	@Test
+	public void testGameOver() {
+		fail("Not yet implemented"); // TODO
+	}
+
 }
