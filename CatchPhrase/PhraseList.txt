@@ -109,9 +109,9 @@ Jane Foster&Marvel Cinematic Universe Everything
 Peter Parker&Marvel Cinematic Universe Everything
 Daily Bugle&Marvel Cinematic Universe Everything
 Gamma Radiation&Marvel Cinematic Universe Everything
-Tesseract&Marvel Cinematic Universe Everything
-"I am Groot"&Marvel Cinematic Universe Everything
-"HULK SMASH!"&Marvel Cinematic Universe Everything
+Tesseract&Marvel Cinematic Universe Quotes Everything
+"I am Groot"&Marvel Cinematic Universe Quotes Everything
+"HULK SMASH!"&Marvel Cinematic Universe Quotes Everything
 "Genius, billionaire, playboy, philanthropist"&Marvel Cinematic Universe Everything
 Asgard&Marvel Cinematic Universe Everything
 New York&Marvel Cinematic Universe Everything
@@ -241,6 +241,7 @@ Mundugnus Fletcher&Harry Potter Everything
 Moaning Myrtle&Harry Potter Everything
 Nearly Headless Nick&Harry Potter Everything
 Gillyweed&Harry Potter Everything
+"Mischeif Managed"&Harry Potter Quotes Everything
 Gandalf&Middle Earth Everything
 Bilbo&Middle Earth Everything
 Legolas&Middle Earth Everything
@@ -279,6 +280,7 @@ The Fellowship of the Ring&Middle Earth Everything
 Isengard&Middle Earth Everything
 Treebeard&Middle Earth Everything
 Helm's Deep&Middle Earth Everything
+"One does not simply walk into Mordor."&Middle Earth Quotes Everything
 Arwen&Middle Earth Everything
 Darth Vader&Star Wars Everything
 Luke Skywalker&Star Wars Everything
@@ -344,7 +346,7 @@ Yao Fei&Arrow Everything
 Mirakuru&Arrow Everything
 The Count&Arrow Everything
 Vertigo&Arrow Everything
-You have failed this City!&Arrow Everything
+"You have failed this City!"&Arrow Quotes Everything
 Starling City&Arrow Everything
 The Queen's Gambit&Arrow Everything
 Big Belly Burger&Arrow Everything
